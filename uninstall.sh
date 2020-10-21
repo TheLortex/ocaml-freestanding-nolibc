@@ -6,6 +6,6 @@ if [ "$prefix" = "" ]; then
 fi
 
 odir=$prefix/lib
-rm -f $odir/pkgconfig/ocaml-freestanding.pc
-rm -rf $odir/ocaml-freestanding
-rm -rf $prefix/include/ocaml-freestanding
+rm -f $odir/pkgconfig/solo5-libc.pc
+rm -rf $odir/solo5-libc
+rm -rf $prefix/include/solo5-libc
