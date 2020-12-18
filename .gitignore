@@ -1,0 +1,4 @@
+Makeconf
+*.o
+libnolibc.a
+test-include/

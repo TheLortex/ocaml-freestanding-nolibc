@@ -1,0 +1,12 @@
+prefix=${pcfiledir}/../..
+exec_prefix=${prefix}
+includedir=${prefix}/include/ocaml-freestanding-nolibc
+libdir=${exec_prefix}/lib/ocaml-freestanding-nolibc
+
+Name: ocaml-freestanding-nolibc
+Version: 0.7.0
+URL: https://github.com/mirage/ocaml-freestanding-nolibc
+Description: Freestanding libc
+Cflags: -I${includedir} -include _freestanding/overrides.h
+Libs: -L${libdir} -lnolibc -lm
+

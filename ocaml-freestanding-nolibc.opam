@@ -6,13 +6,14 @@ bug-reports: "https://github.com/mirage/ocaml-freestanding/issues/"
 license: "MIT"
 tags: "org:mirage"
 dev-repo: "git+https://github.com/mirage/ocaml-freestanding.git"
-build: [make "PREFIX=%{prefix}%"]
-install: [make "install" "PREFIX=%{prefix}%"]
+build: [
+  [ "./configure.sh" "--prefix=%{prefix}%" "--toolchain=static" { solo5-config-ocaml-static:installed } ]
+  [ make ]
+]
+install: [ make "install" ]
 depends: [
-  "conf-pkg-config"
-  "ocamlfind" {build}
-  "solo5-headers"
-  "ocaml" {>= "4.08.0" & < "4.12.0"}
+  "solo5" { >= "0.7.0" }
+  "solo5-config-ocaml-static" { >= "0.7.0" }
 ]
 available: [
   ((os = "linux" & (arch = "x86_64" | arch = "arm64"))
@@ -22,3 +23,8 @@ available: [
 synopsis: "Freestanding libc"
 description:
   "This package provides a freestanding libc."
+pin-depends: [
+  ["solo5.0.7.0" "git+https://github.com/mato/solo5#split-packages"]
+  ["solo5-bindings-hvt.0.7.0" "git+https://github.com/mato/solo5#split-packages"]
+  ["solo5-config-ocaml-static.0.7.0" "git+https://github.com/mato/solo5#split-packages"]
+]
